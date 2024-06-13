@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>Are you smarter than a LLM?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #ff7e5f;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            color: #ff7e5f;
+        }
+        .choices {
+            list-style-type: none;
+            padding: 0;
+        }
+        .choices li {
+            margin-bottom: 10px;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #eb6a4f;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-bar-inner {
+            height: 20px;
+            width: 0;
+            background-color: #ff7e5f;
+            transition: width 0.5s;
+        }
+        .leaderboard-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            vertical-align: middle;
+            border-radius: 50%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 1em;
+        }
+        th {
+            cursor: pointer;
+            background-color: #ff7e5f;
+            color: white;
+        }
+        th:hover {
+            background-color: #eb6a4f;
+        }
+        tr:nth-child(even) {
+            background-color: #ffece0;
+        }
+        tr:hover {
+            background-color: #ffdcc7;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="quiz-container">
+        <img src="logo.png" alt="Quiz Logo" style="height: 200px; margin-bottom: 20px;">
+        <button id="start-button" class="button">Start Quiz</button>
+        <div id="quiz-content" style="display: none;">
+            <div id="question-container"></div>
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="progress-bar-inner"></div>
+            </div>
+            <button id="submit-button" class="button" style="display: none;">Submit</button>
+        </div>
+        <div id="results" style="display: none;">
+            <p id="score"></p>
+            <p id="time-taken"></p>
+        </div>
+        <div id="leaderboard" style="display: none;">
+            <h2>Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th id="score-header">Score</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-entries"></tbody>
+            </table>
+        </div>
+        <button id="retry-button" class="button" style="display: none;" onclick="location.reload()">Try Again?</button>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

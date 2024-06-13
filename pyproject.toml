@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "are-you-smarter-than-a-llm"
+version = "0.1.0"
+description = ""
+authors = ["Zachary"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+google-cloud-aiplatform = "^1.51.0"
+langchain = "^0.1.20"
+langchain-openai = "^0.1.7"
+langchain-anthropic = "^0.1.13"
+langchain-google-vertexai = "^1.0.3"
+tqdm = "^4.66.4"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.1"
+ruff = "^0.4.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
